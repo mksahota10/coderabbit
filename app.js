@@ -23,8 +23,8 @@ app.get('/items', (req, res) => {
 });
 
 app.get('/items/:id', (req, res) => {
-    const id = parseInt(req.params.id);
-    const item = items.find(item => item.id === id);
+    const id = req.params.id; // Error: Missing parseInt to convert the ID to a number
+    const item = items.find(item => item.id === id); 
     if (item) {
         res.json(item);
     } else {
